@@ -1,0 +1,27 @@
+{
+  "name": "wad2",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/scottish3dprinter/WAD2#readme",
+  "bugs": {
+    "url": "https://github.com/scottish3dprinter/WAD2/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scottish3dprinter/WAD2.git"
+  },
+  "license": "ISC",
+  "author": "Arron Weir",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "mustache-express": "^1.3.2",
+    "nedb": "^1.8.0"
+  }
+}
