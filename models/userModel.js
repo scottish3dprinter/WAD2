@@ -13,7 +13,7 @@ class User {
 			console.log('non persistent database started');
 		}
 
-		this.db.count({}, (err, count) => {
+		this.db.count({}, async (err, count) => {
 			if (err) {
 				console.error('DB count failed:', err);
 			} else if (count === 0) {
