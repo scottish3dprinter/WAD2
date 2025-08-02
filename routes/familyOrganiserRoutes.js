@@ -12,7 +12,7 @@ router.get('/login', (req, res) => {
 });
 
 //Dashboard
-router.get('/dashboard', (req. res) => {
+router.get('/dashboard', (req, res) => {
     res.render('dashboard');
 });
 
