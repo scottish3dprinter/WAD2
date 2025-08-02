@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.router();
+const router = express.Router();
 
 //Homepage
 router.get('/', (req, res) => {
@@ -16,4 +16,4 @@ router.get('/dashboard', (req, res) => {
     res.render('dashboard');
 });
 
-module.export = router;
+module.exports = router;
