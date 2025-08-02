@@ -16,4 +16,9 @@ router.get('/dashboard', (req, res) => {
     res.render('dashboard');
 });
 
+//404
+router.use((req, res) => {
+    res.status(404).render('404');
+});
+
 module.exports = router;
