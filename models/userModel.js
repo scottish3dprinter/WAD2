@@ -65,6 +65,9 @@ class User {
         this.db.find({}, cb);
     }
 
+    delete(user, cb) {
+        this.db.remove({ user: user }, {}, cb:
+    }
 
 }
 

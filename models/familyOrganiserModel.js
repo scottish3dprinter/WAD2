@@ -42,6 +42,10 @@ class FamilyOrganiser {
 		this.db.find({ user: user }, callback);
 	}
 
+    getEventById(Id, callback) {
+        this.db.findOne({ _id: id }, callback);
+    }
+
 	deleteEventById(id, callback) {
 		this.db.remove({ _id: id }, {}, callback);
 	}
