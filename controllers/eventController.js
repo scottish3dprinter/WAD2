@@ -1,7 +1,7 @@
-const eventsModel = require('../models/eventsmodel');
+const eventsModel = require('../models/familyOrganiserController');
 
 function addForm(req, res) {
-    res.render(event/add');
+    res.render('event/add');
 }
 
 function addEvent(req, res) {
@@ -11,7 +11,7 @@ function addEvent(req, res) {
         endTime: req.body.endTime,
         location: req.body.location,
         equipment: req.body.equipment,
-        userId: req.body.userId,,
+        userId: req.body.userId,
         recurring: req.body.recurring === 'on'
     };
 

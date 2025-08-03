@@ -42,7 +42,7 @@ class FamilyOrganiser {
 		this.db.find({ user: user }, callback);
 	}
 
-    getEventById(Id, callback) {
+    getEventById(id, callback) {
         this.db.findOne({ _id: id }, callback);
     }
 

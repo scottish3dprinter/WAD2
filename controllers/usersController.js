@@ -27,7 +27,8 @@ function addUser(req, res) {
 }
 
 function deleteUser(req, res) {
-    userModel.deleteUser(req, res) {
+    const username = req.params.username;
+    userModel.deleteUser(username, (err) => {
         if (err) {
             console.error("Failed to delete user", err);
             return res.status(500).send("Error dElete user");

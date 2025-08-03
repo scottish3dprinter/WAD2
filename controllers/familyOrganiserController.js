@@ -1,4 +1,4 @@
-const eventsModel = require('../model/eventsModel');
+const eventsModel = require('../models/familyOrganiserController');
 
 function homepage(req, res) {
     eventsModel.getAllEvents((err, events) => {
