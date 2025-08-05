@@ -1,4 +1,5 @@
-const eventsModel = require('../models/familyOrganiserModel');
+const FamilyOrganiserModel = require('../models/familyOrganiserModel');
+const eventsModel = new FamilyOrganiserModel();
 
 function addForm(req, res) {
     res.render('event/add');
