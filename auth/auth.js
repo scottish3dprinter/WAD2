@@ -34,8 +34,22 @@ function login(req, res, next) {
     });
 };
 
+function registerPage(req, res) {
+    res.render('register');
+}
+
+function register(req, res) {
+    let username = req.body.username;
+    let password = req.body.password;
+    if (!username || !password) {
+        return res.status(400).send();
+    }
+    usersModel.create(username, password, 2);
+}
 
 module.exports = {
     loginPage,
-    login
+    login,
+    registerPage,
+    register
 }

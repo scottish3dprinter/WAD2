@@ -9,6 +9,11 @@ router.get('/', familyOrganiserController.homepage);
 
 //Login
 router.get('/login', auth.loginPage);
+router.post('/login', auth.login);
+
+//Register
+router.get('/register', auth.registerPage);
+router.post('/register', auth.register);
 
 //Dashboard
 router.get('/dashboard', familyOrganiserController.dashboard);
