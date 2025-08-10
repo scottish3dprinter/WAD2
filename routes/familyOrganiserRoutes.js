@@ -13,9 +13,7 @@ router.get('/login', (req, res) => {
 });
 
 //Dashboard
-router.get('/dashboard', (req, res) => {
-    res.render('dashboard');
-});
+router.get('/dashboard', familyOrganiserController.dashboard);
 
 //Events
 router.get('/event/add', eventController.addForm);

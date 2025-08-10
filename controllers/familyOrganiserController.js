@@ -21,7 +21,12 @@ function eventDetails(req, res) {
     });
 }
 
+function dashboard(req, res) {
+    res.render('dashboard');
+}
+
 module.exports = {
     homepage,
-    eventDetails
+    eventDetails,
+    dashboard
 };
