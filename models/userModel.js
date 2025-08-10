@@ -66,7 +66,7 @@ class User {
     }
 
     delete(user, cb) {
-        this.db.remove({ user: user }, {}, cb:
+        this.db.remove({ user: user }, {}, cb;
     }
 
 }
