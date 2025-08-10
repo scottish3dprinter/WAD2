@@ -3,14 +3,12 @@ const router = express.Router();
 
 const familyOrganiserController = require('../controllers/familyOrganiserController');
 const eventController = require('../controllers/eventController');
-
+const auth = require('../auth/auth');
 //Homepage
 router.get('/', familyOrganiserController.homepage);
 
 //Login
-router.get('/login', (req, res) => {
-    res.render('login');
-});
+router.get('/login', auth.loginPage);
 
 //Dashboard
 router.get('/dashboard', familyOrganiserController.dashboard);
