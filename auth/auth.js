@@ -17,7 +17,6 @@ function login(req, res, next) {
         }
         if (!user) {
             console.log("user ", username, " not found");
-            return res.render("register");
         }
         bcrypt.compare(password, user.password, function (err, result) {
             if (result) {
@@ -45,6 +44,7 @@ function register(req, res) {
         return res.status(400).send();
     }
     usersModel.create(username, password, 2);
+    res.redirect('login');
 }
 
 module.exports = {
