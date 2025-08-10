@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
+const familyOrganiserController = require('../controllers/familyOrganiserController');
+const eventController = require('../controllers/eventController');
+
 //Homepage
-router.get('/', (req, res) => {
-    res.render('index');
-});
+router.get('/', familyOrganiserController.homepage);
 
 //Login
 router.get('/login', (req, res) => {
@@ -15,6 +16,11 @@ router.get('/login', (req, res) => {
 router.get('/dashboard', (req, res) => {
     res.render('dashboard');
 });
+
+//Events
+router.get('/event/add', eventController.addForm);
+router.post('/event/add', eventController.addEvent);
+router.post('/event/delete/:id', eventController.deleteEvent);
 
 //404
 router.use((req, res) => {

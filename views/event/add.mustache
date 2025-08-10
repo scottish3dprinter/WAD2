@@ -1,0 +1,32 @@
+<h1>Add Event</h1>
+<form action="/event/add" method="POST">
+  <div>
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" required>
+  </div>
+  <div>
+    <label for="startTime">Start Time</label>
+    <input type="datetime-local" id="startTime" name="startTime" required>
+  </div>
+  <div>
+    <label for="endTime">End Time</label>
+    <input type="datetime-local" id="endTime" name="endTime" required>
+  </div>
+  <div>
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location">
+  </div>
+  <div>
+    <label for="equipment">Equipment</label>
+    <input type="text" id="equipment" name="equipment">
+  </div>
+  <div>
+    <label for="userId">User ID</label>
+    <input type="text" id="userId" name="userId">
+  </div>
+  <div>
+    <label for="recurring">Recurring</label>
+    <input type="checkbox" id="recurring" name="recurring">
+  </div>
+  <button type="submit">Add Event</button>
+</form>
