@@ -1,5 +1,4 @@
-const FamilyOrganiserModel = require('../models/familyOrganiserModel');
-const eventsModel = new FamilyOrganiserModel();
+const eventsModel = require('../models/familyOrganiserModel');
 
 function addForm(req, res) {
     res.render('event/add');
@@ -35,8 +34,19 @@ function deleteEvent(req, res) {
     });
 }
 
+function eventDetails(req, res) {
+    eventsModel.getEventById(req.params.id, (err, event) => {
+        if (err || !event) {
+            console.error("Failed to get event", err, " Id:", req.params.id);
+            return res.status(404).send("Event not found");
+        }
+        res.render('event/detail', { event: event });
+    });
+}
+
 module.exports = {
     addForm,
     addEvent,
-    deleteEvent
+    deleteEvent,
+    eventDetails
 };

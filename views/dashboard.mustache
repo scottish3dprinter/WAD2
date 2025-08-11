@@ -8,7 +8,7 @@
         <h1> dashboard </h1>
         <ul>
             {{#events}}
-                <li>{{title}}{{name}} - {{startTime}}</li>
+                <li><a href="/event/{{_id}}">{{title}}{{name}} - {{startTime}}</a></li>
             {{/events}}
             {{^events}}
                 <li>No events</li>

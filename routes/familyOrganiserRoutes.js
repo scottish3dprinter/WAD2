@@ -23,6 +23,7 @@ router.get('/dashboard', familyOrganiserController.dashboard);
 //Events
 router.get('/event/add', auth.isOrganiser, eventController.addForm);
 router.post('/event/add', auth.isOrganiser, eventController.addEvent);
+router.get('/event/:id', eventController.eventDetails);
 router.post('/event/delete/:id', auth.isOrganiser, eventController.deleteEvent);
 
 //Admin

@@ -1,5 +1,4 @@
-const FamilyOrganiserModel = require('../models/familyOrganiserModel');
-const eventsModel = new FamilyOrganiserModel();
+const eventsModel = require('../models/familyOrganiserModel');
 
 function homepage(req, res) {
     eventsModel.getAllEvents((err, events) => {
@@ -8,16 +7,6 @@ function homepage(req, res) {
             return res.status(500).send("Failed to load homepage");
         }
         res.render('index', { events: events });
-    });
-}
-
-function eventDetails(req, res) {
-    eventsModel.getEventById(req.params.id, (err, event) => {
-        if (err || !event) {
-            console.error("Failed to get event", err, " Id:", req.params.id);
-            return res.status(404).send("Event not found");
-        }
-        res.render('events/detail', { event: event });
     });
 }
 
@@ -37,7 +26,6 @@ function adminPage(req, res) {
 
 module.exports = {
     homepage,
-    eventDetails,
     dashboard,
     adminPage
 };

@@ -1,5 +1,9 @@
 const nedb = require('gray-nedb');
 
+const path = require('path');
+
+const dbPath = path.join(__dirname, '../data/events.db');
+
 class FamilyOrganiser {
 	constructor(dbFilePath) {
 		if (dbFilePath) {
@@ -55,4 +59,6 @@ class FamilyOrganiser {
 	}
 }
 
-module.exports = FamilyOrganiser;
+
+familyOrganiser = new FamilyOrganiser(dbPath)
+module.exports = familyOrganiser;
