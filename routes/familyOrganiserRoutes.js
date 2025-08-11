@@ -4,6 +4,7 @@ const router = express.Router();
 const familyOrganiserController = require('../controllers/familyOrganiserController');
 const eventController = require('../controllers/eventController');
 const auth = require('../auth/auth');
+
 //Homepage
 router.get('/', familyOrganiserController.homepage);
 
