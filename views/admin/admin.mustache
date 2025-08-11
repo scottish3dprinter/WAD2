@@ -1,24 +1,41 @@
-<h1> Admin Dashboard </h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Family Organiser</title>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
 
-<h2> admin users</h2>
-<ul>
-{{#Ausers}}
- <li>{{user}}</li>
-{{/Ausers}}
-</ul>
+        {{> nav}}
 
-<br>
-<h2> Org users</h2>
-<ul>
-{{#Ousers}}
- <li>{{user}}</li>
-{{/Ousers}}
-</ul>
 
-<br>
-<h2> base users</h2>
-<ul>
-{{#Busers}}
- <li>{{user}}</li>
-{{/Busers}}
-</ul>
+        <h1> Admin Dashboard </h1>
+
+
+
+
+        <h2> admin users</h2>
+        <ul>
+        {{#Ausers}}
+        <li>{{user}}</li>
+        {{/Ausers}}
+        </ul>
+
+        <br>
+        <h2> Org users</h2>
+        <ul>
+        {{#Ousers}}
+        <li>{{user}}</li>
+        {{/Ousers}}
+        </ul>
+
+        <br>
+        <h2> base users</h2>
+        <ul>
+        {{#Busers}}
+        <li>{{user}}</li>
+        {{/Busers}}
+        </ul>
+        <script src=/js/main.js></script>
+    </body>
+</html>

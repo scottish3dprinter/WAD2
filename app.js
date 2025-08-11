@@ -25,7 +25,7 @@ app.use(session({
 }));
 
 const mustache = require('mustache-express');
-app.engine('mustache', mustache());
+app.engine('mustache', mustache(path.join(__dirname, 'views/partials'), '.mustache'));
 app.set('view engine', 'mustache');
 
 const router = require('./routes/familyOrganiserRoutes');
