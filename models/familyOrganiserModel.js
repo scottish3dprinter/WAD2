@@ -1,4 +1,4 @@
-const nedb = require('nedb');
+const nedb = require('gray-nedb');
 
 class FamilyOrganiser {
 	constructor(dbFilePath) {
