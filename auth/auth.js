@@ -75,14 +75,14 @@ function isAuthenticated(req, res, next) {
 }
 
 function isOrganiser(req, res, next) {
-    if (req.session && req.session.user.role <= 1) {
+    if (req.session && req.session.user &&  req.session.user.role <= 1) {
         return next();
     }
     return res.redirect('/login')
 }
 
 function isAdmin(req, res, next) {
-    if (req.session && req.session.user.role === 0) {
+    if (req.session && req.session.user && req.session.user.role === 0) {
         return next();
     }
     return res.redirect('/login')
