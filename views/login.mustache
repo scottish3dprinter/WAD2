@@ -6,6 +6,9 @@
     </head>
     <body>
         <h1> login </h1>
+            {{#error}}
+            <p class="error">{{error}}</p>
+            {{/error}}
             <form action="/login" method="POST">
             <div>
                 <label for="username">Username</label>

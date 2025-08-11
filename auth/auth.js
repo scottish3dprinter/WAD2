@@ -7,7 +7,9 @@ const UsersModel = require('../models/userModel');
 const usersModel = new UsersModel(dbPath);
 
 function loginPage(req, res) {
-    res.render('login');
+    const error = req.session.error;
+    delete req.session.error;
+    res.render('login', {error});
 }
 
 async function login(req, res) {
@@ -19,6 +21,7 @@ async function login(req, res) {
         const user = await usersModel.lookup(username);
         if (!user) {
             console.log("user ", username, " not found");
+            req.session.error = "No user";
             return res.status(401).redirect('/login');
         }
         const result = await bcrypt.compare(password, user.password)
@@ -30,6 +33,7 @@ async function login(req, res) {
             };
             return res.redirect('/dashboard')
         } else {
+            req.session.error = "Incorrect password"
             return res.redirect('/login')
         }
 
