@@ -35,25 +35,22 @@ class User {
 		});
 
 	}
-    create(username, password, levelI) {
-    this.lookup(username)
-    .then(existing => {
+
+	async create(username, password, levelI) {
+        username = String(username).trim();
+        const existing = await this.lookup(username);
         if (existing) {
-            return Promise.reject(new Error('Username already exists'));
+            throw new Error('Username already exists');
         }
-    });
-    return bcrypt.hash(password, saltRounds).then(hash => {
-        return new Promise((resolve, reject) => {
-        this.db.insert({ user: username, password: hash, level: levelI }, (err, doc) => {
-            if (err) {
-            console.log("Can't insert user: ", username, err);
-            return reject(err);
-            }
-            resolve(doc);
+        const hash = await bcrypt.hash(password, saltRounds);
+        return await new Promise((resolve, reject) => {
+            this.db.insert({ user: username, password: hash, level: levelI }, (err, doc) => {
+                if (err) return reject(err);
+                resolve(doc);
+            });
         });
-        });
-    });
     }
+
 
     lookup(user) {
     return new Promise((resolve, reject) => {
