@@ -33,41 +33,48 @@ class User {
 
 	}
     create(username, password, levelI) {
-        const that = this;
-        bcrypt.hash(password, saltRounds).then(function(hash) {
-            var entry = {
-                user: username,
-                password: hash,
-                level: levelI // 0 = admin, 1 = Organisers, 2 = User
-            };
-            that.db.insert(entry, function (err) {
+    return bcrypt.hash(password, saltRounds).then(hash => {
+        return new Promise((resolve, reject) => {
+        this.db.insert({ user: username, password: hash, level: levelI }, (err, doc) => {
             if (err) {
-            console.log("Can't insert user: ", username);
+            console.log("Can't insert user: ", username, err);
+            return reject(err);
             }
+            resolve(doc);
+        });
+        });
+    });
+    }
+
+    lookup(user) {
+    return new Promise((resolve, reject) => {
+        this.db.find({ user }, (err, entries) => {
+        if (err) return reject(err);
+        if (!entries.length) return resolve(null);
+        resolve(entries[0]);
+        });
+    });
+    }
+
+
+    list() {
+        return new Promise((resolve, reject) => {
+            this.db.find({}, (err, users) => {
+                if (err) return reject(err);
+                resolve(users);
             });
         });
     }
 
-    lookup(user, cb) {
-        this.db.find({'user': user}, function (err, entries) {
-            if (err) {
-                return cb(null, null);
-            } else {
-                if (entries.length == 0) {
-                    return cb(null, null);
-                }
-                return cb(null, entries[0]);
-            }
+    delete(user) {
+    return new Promise((resolve, reject) => {
+        this.db.remove({ user }, {}, (err, numRemoved) => {
+        if (err) return reject(err);
+        resolve(numRemoved); // number of documents removed
         });
+    });
     }
 
-    list(cb) {
-        this.db.find({}, cb);
-    }
-
-    delete(user, cb) {
-        this.db.remove({ user: user }, {}, cb);
-    }
 
 }
 
