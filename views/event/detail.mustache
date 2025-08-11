@@ -1,8 +1,17 @@
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Family Organiser</title>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
         {{> nav}}
 
-        <h1> event detail </h1>
-        <p>{{event.name}}</p>
+        <h1> Event Detail </h1>
+        <h2>{{event.name}}</h2>
+        <p>equipment: {{event.equipment}}</p>
+        <p>start: {{event.startTime}}</p>
+        <p>end: {{event.endTime}}</p>
         <script src=/js/main.js></script>
     </body>
 </html>
