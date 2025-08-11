@@ -6,6 +6,14 @@
     </head>
     <body>
         <h1> dashboard </h1>
+        <ul>
+            {{#events}}
+                <li>{{title}}{{name}} - {{startTime}}</li>
+            {{/events}}
+            {{^events}}
+                <li>No events</li>
+            {{/events}}
+        </ul>
         <script src=/js/main.js></script>
     </body>
 </html>

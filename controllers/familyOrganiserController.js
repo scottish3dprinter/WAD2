@@ -22,7 +22,13 @@ function eventDetails(req, res) {
 }
 
 function dashboard(req, res) {
-    res.render('dashboard');
+    eventsModel.getAllEvents((err, events) => {
+        if (err){
+            console.error("Failed to get events", err);
+            return res.status(500).send("Failed to load dashboard")
+        }
+      res.render('dashboard', {events: events });
+    });
 }
 
 function adminPage(req, res) {
