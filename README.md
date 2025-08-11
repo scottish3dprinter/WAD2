@@ -1,5 +1,12 @@
 # WAD2
 
+[repo](https://github.com/scottish3dprinter/WAD2)
+
+[server](wad2.arronweir.com) 
+username: admin
+password: admin
+
+
 WAD2 is a [Node.js](https://nodejs.org/) and [Express](https://expressjs.com/) web app using MVC structure, Mustache templates, and Docker for deployment.
 
 There is a Github action pipeline set up that deploys to my Ubuntu server that is hosted on [Linode](https://www.linode.com/). It runs on a high port and Nginx passes from 80.
