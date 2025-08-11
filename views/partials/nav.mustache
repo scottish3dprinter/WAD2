@@ -5,7 +5,11 @@
 
 
     {{#isOrganiser}} | <a href="/event/add">Add Event</a>{{/isOrganiser}}
-    {{#isAdmin}} | <a href="/admin">Admin</a>{{/isAdmin}}
+    {{#isAdmin}} |
+    <a href="/admin">Admin</a>
+    <a href="/admin/adduser"> Add New User </a>
+    {{/isAdmin}}
+    <a href="/login"> {{username}}</a>>
   {{/user}}
   {{^user}}
     <a href="/login">Login</a> | <a href="/register">Register</a>
