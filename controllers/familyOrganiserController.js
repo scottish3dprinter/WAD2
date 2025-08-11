@@ -20,12 +20,8 @@ function dashboard(req, res) {
     });
 }
 
-function adminPage(req, res) {
-    res.render('admin');
-}
 
 module.exports = {
     homepage,
-    dashboard,
-    adminPage
+    dashboard
 };

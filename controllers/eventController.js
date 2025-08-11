@@ -5,10 +5,12 @@ function addForm(req, res) {
     res.render('event/add');
 }
 
-function addEvent(req, res) {
+async function addEvent(req, res) {
+    try {
+    const user = await userModel.lookup(req.body.userId);
     const newEvent = {
         name: req.body.title,
-        user: userModel.lookup(req.body.userId),
+        user: user ? user.user : req.body.userId,
         startTime: req.body.startTime,
         endTime: req.body.endTime,
         location: req.body.location,
@@ -16,14 +18,17 @@ function addEvent(req, res) {
         userId: req.body.userId,
         recurring: req.body.recurring === 'on'
     };
-
-    eventsModel.addEvent(newEvent, (err) => {
+    eventsModel.addEvent(newEvent, (err)=> {
         if (err) {
             console.error("Failed to add event", err);
             return res.status(500).send("Error adding event");
         }
         res.redirect('/dashboard');
     });
+    } catch (err) {
+        console.error("Failed to look up user", err);
+        res.status(500).send("Error adding event");
+    }
 }
 
 function deleteEvent(req, res) {
