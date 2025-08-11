@@ -1,7 +1,13 @@
 <nav>
-  <a href="/">Home</a> |
-  <a href="/dashboard">Dashboard</a> |
-  <a href="/event/add">Add Event</a> |
-  <a href="/login">Login</a> |
-  <a href="/register">Register</a>
+  <a href="/">Home</a>
+  <a href="/dashboard">Dashboard</a>
+  {{#user}}
+
+
+    {{#isOrganiser}} | <a href="/event/add">Add Event</a>{{/isOrganiser}}
+    {{#isAdmin}} | <a href="/admin">Admin</a>{{/isAdmin}}
+  {{/user}}
+  {{^user}}
+    <a href="/login">Login</a> | <a href="/register">Register</a>
+  {{/user}}
 </nav>

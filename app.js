@@ -24,6 +24,13 @@ app.use(session({
     }
 }));
 
+app.use((req, res, next) => {
+    res.locals.user = req.session.user;
+    res.locals.isOrganiser = req.session.user && req.session.user.role <= 1;
+    res.locals.isAdmin = req.session.user && req.session.user.role === 0;
+    next();
+});
+
 const mustache = require('mustache-express');
 app.engine('mustache', mustache(path.join(__dirname, 'views/partials'), '.mustache'));
 app.set('view engine', 'mustache');

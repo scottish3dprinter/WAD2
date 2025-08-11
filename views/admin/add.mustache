@@ -1,30 +1,39 @@
-{{> nav}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Family Organiser</title>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
+    {{> nav}}
 
-<h1>Admin: Add User</h1>
+    <h1>Admin: Add User</h1>
 
-<form method="post" action="/admin/addUser">
-  <div>
-    <label for="username">Username</label><br>
-    <input id="username" name="username" type="text" required>
-  </div>
+    <form method="post" action="/admin/addUser">
+    <div>
+        <label for="username">Username</label><br>
+        <input id="username" name="username" type="text" required>
+    </div>
 
-  <div style="margin-top:10px;">
-    <label for="password">Password</label><br>
-    <input id="password" name="password" type="password" required>
-  </div>
+    <div style="margin-top:10px;">
+        <label for="password">Password</label><br>
+        <input id="password" name="password" type="password" required>
+    </div>
 
-  <div style="margin-top:10px;">
-    <label for="role">Role</label><br>
-    <!-- These string values map to your numeric levels in the controller:
-         admin -> 0, organiser -> 1, (default/anything else) -> 2 -->
-    <select id="role" name="role" required>
-      <option value="user" selected>User</option>
-      <option value="organiser">Organiser</option>
-      <option value="admin">Admin</option>
-    </select>
-  </div>
+    <div style="margin-top:10px;">
+        <label for="role">Role</label><br>
+        <!-- These string values map to your numeric levels in the controller:
+            admin -> 0, organiser -> 1, (default/anything else) -> 2 -->
+        <select id="role" name="role" required>
+        <option value="user" selected>User</option>
+        <option value="organiser">Organiser</option>
+        <option value="admin">Admin</option>
+        </select>
+    </div>
 
-  <div style="margin-top:16px;">
-    <button type="submit">Create User</button>
-  </div>
-</form>
+    <div style="margin-top:16px;">
+        <button type="submit">Create User</button>
+    </div>
+    </form>
+    </body>
+</html>
