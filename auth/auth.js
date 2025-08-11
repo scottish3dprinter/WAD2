@@ -27,7 +27,7 @@ function login(req, res) {
                     id: user._id,
                     role: user.level
                 };
-                return res.redirect('/dashbord');
+                return res.redirect('/dashboard');
             } else {
                 return res.render("login");
             }
@@ -46,9 +46,9 @@ function register(req, res) {
         return res.status(400).send();
     }
 
-    userModel.lookup(username, function (err, existingUser) {
+    usersModel.lookup(username, function (err, existingUser) {
         if (err) {
-            console.error("Error looking up user", error);
+            console.error("Error looking up user", err);
             return res.status(500).send();
         }
         if (existingUser) {
@@ -56,8 +56,9 @@ function register(req, res) {
             return res.status(500).send();
         }
 
-    usersModel.create(username, password, 2);
-    res.redirect('login');
+        usersModel.create(username, password, 2);
+        res.redirect('login');
+    });
 }
 
 module.exports = {
