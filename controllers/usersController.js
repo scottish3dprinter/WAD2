@@ -32,8 +32,23 @@ function deleteUser(req, res) {
     });
 }
 
+async function adminDashboard(req, res) {
+    try {
+        const users = await userModel.list();
+
+        const Ausers = users.filter(u => u.level === 0).map(u => ({ user: u.user || 'Unknown' }));
+
+        res.render('admin/admin', { users, Ausers });
+    } catch (err) {
+        console.error('Error fetching users:', err);
+        res.status(500).send();
+    }
+}
+
+
 module.exports = {
     userForm,
     addUser,
-    deleteUser
+    deleteUser,
+    adminDashboard
 }

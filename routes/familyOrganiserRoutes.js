@@ -27,7 +27,7 @@ router.get('/event/:id', eventController.eventDetails);
 router.post('/event/delete/:id', auth.isOrganiser, eventController.deleteEvent);
 
 //Admin
-router.get('/admin', auth.isAdmin, familyOrganiserController.adminPage);
+router.get('/admin', auth.isAdmin, userController.adminDashboard);
 router.get('/admin/addUser', auth.isAdmin, userController.userForm);
 router.post('/admin/addUser', auth.isAdmin, userController.addUser);
 

@@ -1,4 +1,5 @@
 const eventsModel = require('../models/familyOrganiserModel');
+const userModel = require('../models/userModel');
 
 function addForm(req, res) {
     res.render('event/add');
@@ -6,7 +7,8 @@ function addForm(req, res) {
 
 function addEvent(req, res) {
     const newEvent = {
-        title: req.body.title,
+        name: req.body.title,
+        user: userModel.lookup(req.body.userId),
         startTime: req.body.startTime,
         endTime: req.body.endTime,
         location: req.body.location,
