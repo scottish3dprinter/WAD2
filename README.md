@@ -2,7 +2,7 @@
 
 [repo](https://github.com/scottish3dprinter/WAD2)
 
-[server](wad2.arronweir.com) 
+[server](https://wad2.arronweir.com) 
 username: admin
 password: admin
 
