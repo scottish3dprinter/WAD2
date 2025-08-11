@@ -11,7 +11,7 @@ function addUser(req, res) {
         if (req.body.role === "organiser") {
             level = 1;
         } else if (req.body.role === "admin") {
-            level = 2;
+            level = 0;
         }
     }
 
@@ -21,7 +21,7 @@ function addUser(req, res) {
 
 function deleteUser(req, res) {
     const username = req.params.username;
-    userModel.deleteUser(username, (err) => {
+    userModel.delete(username, (err) => {
         if (err) {
             console.error("Failed to delete user", err);
             return res.status(500).send("Error dElete user");
