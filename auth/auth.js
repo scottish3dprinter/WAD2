@@ -1,10 +1,7 @@
 const bcrypt = require('bcrypt');
-const path = require('path');
 
-const dbPath = path.join(__dirname, '../data/users.db');
-
-const UsersModel = require('../models/userModel');
-const usersModel = new UsersModel(dbPath);
+const usersModel = require('../models/userModel');
+//const usersModel = new UsersModel(dbPath);
 
 function loginPage(req, res) {
     const error = req.session.error;

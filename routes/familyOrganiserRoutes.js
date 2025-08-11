@@ -3,6 +3,7 @@ const router = express.Router();
 
 const familyOrganiserController = require('../controllers/familyOrganiserController');
 const eventController = require('../controllers/eventController');
+const userController = require('../controllers/usersController');
 const auth = require('../auth/auth');
 
 //Homepage
@@ -26,6 +27,8 @@ router.post('/event/delete/:id', auth.isOrganiser, eventController.deleteEvent);
 
 //Admin
 router.get('/admin', auth.isAdmin, familyOrganiserController.adminPage);
+router.get('/admin/addUser', auth.isAdmin, userController.userForm);
+router.post('/admin/addUser', auth.isAdmin, userController.addUser);
 
 //404
 router.use((req, res) => {

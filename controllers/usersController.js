@@ -1,8 +1,7 @@
-const UserModel = require('../models/userModel');
-const path = require('path');
+const userModel = require('../models/userModel');
 
-const dbPath = path.join(__dirname, '../data/users.db');
-const userModel = new UserModel(dbPath);
+//const dbPath = path.join(__dirname, '../data/users.db');
+//const userModel = new UserModel(dbPath);
 
 function userForm(req, res) {
     res.render('user/add');

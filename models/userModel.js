@@ -2,6 +2,9 @@ const nedb = require('gray-nedb');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
+const path = require('path');
+
+const dbPath = path.join(__dirname, '../data/users.db');
 
 class User {
 	constructor(dbFilePath) {
@@ -77,5 +80,5 @@ class User {
 
 
 }
-
-module.exports = User;
+user = new User(dbPath);
+module.exports = user;
