@@ -25,8 +25,13 @@ function dashboard(req, res) {
     res.render('dashboard');
 }
 
+function adminPage(req, res) {
+    res.render('admin');
+}
+
 module.exports = {
     homepage,
     eventDetails,
-    dashboard
+    dashboard,
+    adminPage
 };

@@ -20,9 +20,12 @@ router.post('/register', auth.register);
 router.get('/dashboard', familyOrganiserController.dashboard);
 
 //Events
-router.get('/event/add', eventController.addForm);
-router.post('/event/add', eventController.addEvent);
-router.post('/event/delete/:id', eventController.deleteEvent);
+router.get('/event/add', auth.isOrganiser, eventController.addForm);
+router.post('/event/add', auth.isOrganiser, eventController.addEvent);
+router.post('/event/delete/:id', auth.isOrganiser, eventController.deleteEvent);
+
+//Admin
+router.get('/admin', auth.isAdmin, familyOrganiserController.adminPage);
 
 //404
 router.use((req, res) => {

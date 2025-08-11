@@ -69,9 +69,34 @@ async function register(req, res) {
         return res.status(500).send();
     }
 }
+
+function isAuthenticated(req, res, next) {
+    if (req.session && req.session.user) {
+        return next();
+    }
+    return res.redirect('/login')
+}
+
+function isOrganiser(req, res, next) {
+    if (req.session && req.session.user.role <= 1) {
+        return next();
+    }
+    return res.redirect('/login')
+}
+
+function isAdmin(req, res, next) {
+    if (req.session && req.session.user.role === 0) {
+        return next();
+    }
+    return res.redirect('/login')
+}
+
 module.exports = {
     loginPage,
     login,
     registerPage,
-    register
+    register,
+    isAuthenticated,
+    isOrganiser,
+    isAdmin,
 };
